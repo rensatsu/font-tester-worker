@@ -72,7 +72,7 @@ function addCors(response) {
   response.headers.set('Access-Control-Allow-Origin', '*');
 }
 
-async function handleGetFonts(request) {
+async function handleGetFonts() {
   const gFontsList = await getFontsList();
 
   if (!gFontsList) {
@@ -98,6 +98,17 @@ async function handleGetFonts(request) {
   response.headers.set('Content-Type', 'application/json');
   response.headers.set('Cache-Control', `max-age=${CACHE_TTL}`);
   addCors(response);
+  return response;
+}
+
+async function handleGetDebug() {
+  const jsonResp = {
+    build: Constants.GIT_COMMIT,
+    version: VERSION,
+  };
+
+  const response = new Response(JSON.stringify(jsonResp), { status: 200 });
+  response.headers.set('Content-Type', 'application/json');
   return response;
 }
 
@@ -131,13 +142,16 @@ async function handleRequest(request) {
 
   switch (path) {
     case '':
-      return await handleGetInfo(request);
+      return await handleGetInfo();
 
     case 'fonts':
-      return await handleGetFonts(request);
+      return await handleGetFonts();
 
     case 'inject.js':
-      return await handleGetInjectJs(request);
+      return await handleGetInjectJs();
+
+    case 'debug':
+      return await handleGetDebug();
 
     default:
       return errorResponse(404, 'Not found');
