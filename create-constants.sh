@@ -8,7 +8,7 @@ printenv;
 
 echo "Writing constants.js"
 if [ -f "constants.js" ]; then
-    echo "Constats file already exists"
+    >&2 echo "Constats file already exists"
     exit 1;
 fi;
 

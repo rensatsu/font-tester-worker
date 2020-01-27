@@ -8,4 +8,5 @@ worker/
 node_modules/
 .cargo-ok
 constants.js
+*.bak
 dist/
