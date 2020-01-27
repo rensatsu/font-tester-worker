@@ -4,18 +4,15 @@ const CACHE_TTL = 1 * 24 * 3600;
 const VERSION = 3;
 const GIST_ID = Constants.GIST_ID;
 
-const INJECT_SCRIPT_URL = `https://gist.githubusercontent.com/${GIST_ID}/raw/gft.js?v=${VERSION}`;
-const GITHUB_URL = `https://gist.github.com/${GIST_ID}/`;
-
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
 
 const GFONTS_API_KEY = Constants.GFONTS_API_KEY;
-const CACHE_TTL = Constants.CACHE_TTL;
 const GFONTS_REFERRER = Constants.GFONTS_REFERRER;
-const INJECT_SCRIPT_URL = Constants.INJECT_SCRIPT_URL;
-const GITHUB_URL = Constants.GITHUB_URL;
+
+const INJECT_SCRIPT_URL = `https://gist.githubusercontent.com/${GIST_ID}/raw/gft.js?v=${VERSION}`;
+const GITHUB_URL = `https://gist.github.com/${GIST_ID}/`;
 
 async function getFontsList() {
   try {
