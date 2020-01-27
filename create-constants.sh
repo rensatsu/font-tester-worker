@@ -3,9 +3,6 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-echo "Printing env:"
-printenv;
-
 echo "Writing constants.js"
 if [ -f "constants.js" ]; then
     >&2 echo "Constats file already exists"
