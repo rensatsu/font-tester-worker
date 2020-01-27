@@ -9,6 +9,8 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@master
+      - name: Build site
+        run: './create-constants.js'
       - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
         with:
