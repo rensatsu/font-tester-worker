@@ -9,31 +9,42 @@
             const gftStyle = document.createElement('style');
             gftStyle.id = 'link-gft-css0';
             gftStyle.innerHTML = `
-                #link-gft-container {
+                .link-gft-container {
                     position: fixed;
                     bottom: 0;
                     left: 0;
-                    width: 200px;
+                    width: 400px;
                     background: #fff;
                     padding: 3px 7px;
                     border: 1px solid #f00;
                     border-width: 1px 1px 0 0;
-                    font-family: monospace !important;
                     font-size: 14px !important;
                     line-height: 1.5 !important;
                     z-index: 99999999;
                     color: #000;
                 }
 
-                #link-gft-select {
+                .link-gft-container, .link-gft-container * {
+                    font-family: monospace !important;
+                }
+
+                .link-gft-select {
                     width: 100%;
                     background: #fff;
                     color: #000;
                     padding: 0;
-                    margin: 2px;
+                    margin: 5px 0;
                     border: 1px solid #777;
                     box-shadow: none;
-                    font-family: monospace !important;
+                }
+
+                .link-gft-notification {
+                    background-color: #fcb;
+                    padding: 5px;
+                }
+
+                .link-gft-notification p {
+                    margin: 0;
                 }
             `;
 
@@ -48,11 +59,11 @@
                 .then((json) => {
                     if (json && json.fonts) {
                         this.fontList = json && json.fonts ? json.fonts : [];
-                        this.runApp();
                     } else {
                         this.fontList = ["Andika", "Anonymous Pro", "Arimo", "Bad Script", "Comfortaa", "Cormorant", "Cormorant Garamond", "Cormorant Infant", "Cormorant SC", "Cormorant Unicase", "Cousine", "Cuprum", "Didact Gothic", "EB Garamond", "El Messiri", "Exo 2", "Fira Mono", "Fira Sans", "Fira Sans Condensed", "Fira Sans Extra Condensed", "Forum", "Istok Web", "Jura", "Kelly Slab", "Kurale", "Ledger", "Lobster", "Lora", "Marck Script", "Marmelad", "Merriweather", "Neucha", "Noto Sans", "Noto Serif", "Open Sans", "Open Sans Condensed", "Oranienbaum", "PT Mono", "PT Sans", "PT Sans Caption", "PT Sans Narrow", "PT Serif", "PT Serif Caption", "Pattaya", "Philosopher", "Play", "Playfair Display", "Playfair Display SC", "Poiret One", "Press Start 2P", "Prosto One", "Roboto", "Roboto Condensed", "Roboto Mono", "Roboto Slab", "Rubik", "Rubik Mono One", "Rubik One", "Ruslan Display", "Russo One", "Scada", "Seymour One", "Stalinist One", "Tenor Sans", "Tinos", "Ubuntu", "Ubuntu Condensed", "Ubuntu Mono", "Underdog", "Yeseva One"];
-                        this.runApp();
                     }
+
+                    this.runApp();
                 });
         },
 
@@ -61,11 +72,11 @@
                 gFonts = this.fontList.sort();
 
                 const gftContainer = document.createElement('div');
-                gftContainer.id = 'link-gft-container';
+                gftContainer.classList.add('link-gft-container');
                 gftContainer.textContent = 'Google Fonts Tester:';
 
                 const gftFontSelect = document.createElement('select');
-                gftFontSelect.id = 'link-gft-select';
+                gftFontSelect.classList.add('link-gft-select');
 
                 gFonts.forEach((font) => {
                     const option = document.createElement('option');
@@ -74,7 +85,22 @@
                     gftFontSelect.append(option);
                 });
 
-                gftContainer.append(gftFontSelect);
+                const gftNotification = document.createElement('div');
+                gftNotification.classList.add('link-gft-notification');
+
+                const gftNotificationText = document.createElement('p');
+                gftNotificationText.textContent = 'GFT is no longer supported.';
+
+                const gftNotificationLink = document.createElement('a');
+
+                gftNotificationLink.textContent = 'Snapfont is a good alternative.';
+                gftNotificationLink.href = 'https://getsnapfont.com/';
+                gftNotificationLink.target = '_blank';
+                gftNotificationLink.rel = 'nofollow';
+
+                gftNotification.append(gftNotificationText, gftNotificationLink);
+                gftContainer.append(gftFontSelect, gftNotification);
+
                 document.body.appendChild(gftContainer);
 
                 gftFontSelect.addEventListener('change', function () {
