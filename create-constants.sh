@@ -5,7 +5,7 @@ set -o nounset
 
 echo "Writing constants.js"
 if [ -f "constants.js" ]; then
-    >&2 echo "Constats file already exists"
+    >&2 echo "Constants file already exists"
     exit 1;
 fi;
 
