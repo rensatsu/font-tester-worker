@@ -20,7 +20,7 @@ javascript:((d,s)=>{s=d.createElement("script");s.src="https://fonts-api.renclou
 
 At this moment, script fetches only fonts which contain cyrillic subset.
 
-## Worker Environment Variables
+## Environment Variables
 
 * `CF_API_TOKEN` - Cloudflare API Token.
 * `GFONTS_API_KEY` - Google Fonts API Token.

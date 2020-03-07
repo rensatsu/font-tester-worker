@@ -14,7 +14,6 @@ jobs:
         env:
           GFONTS_API_KEY: ${{ secrets.GFONTS_API_KEY }}
           GFONTS_REFERRER: ${{ secrets.GFONTS_REFERRER }}
-          GIST_ID: ${{ secrets.GIST_ID }}
       - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
         with:
