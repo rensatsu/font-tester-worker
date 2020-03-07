@@ -1,8 +1,7 @@
 const Constants = require('./constants');
+const injectScript = require('raw-loader!./bookmarklet/inject.js');
 
 const CACHE_TTL = 1 * 24 * 3600;
-const VERSION = 3;
-const GIST_ID = Constants.GIST_ID;
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
@@ -11,8 +10,7 @@ addEventListener('fetch', event => {
 const GFONTS_API_KEY = Constants.GFONTS_API_KEY;
 const GFONTS_REFERRER = Constants.GFONTS_REFERRER;
 
-const INJECT_SCRIPT_URL = `https://gist.githubusercontent.com/${GIST_ID}/raw/gft.js?v=${VERSION}`;
-const GITHUB_URL = `https://gist.github.com/${GIST_ID}/`;
+const GITHUB_URL = `https://github.com/rensatsu/font-tester-worker`;
 
 async function getFontsList() {
   try {
@@ -34,23 +32,6 @@ async function getFontsList() {
     if (!resp.ok) return null;
 
     return await resp.json();
-  } catch (e) {
-    return null;
-  }
-}
-
-async function getInjectScript() {
-  try {
-    const resp = await fetch(INJECT_SCRIPT_URL, {
-      cf: {
-        cacheEverything: true,
-        cacheTtl: CACHE_TTL,
-      },
-    });
-
-    if (!resp.ok) return null;
-
-    return await resp.arrayBuffer();
   } catch (e) {
     return null;
   }
@@ -103,8 +84,7 @@ async function handleGetFonts() {
 
 async function handleGetDebug() {
   const jsonResp = {
-    build: Constants.GIT_COMMIT,
-    version: VERSION,
+    build: 'GIT_COMMIT' in Constants ? Constants.GIT_COMMIT : null,
   };
 
   const response = new Response(JSON.stringify(jsonResp), { status: 200 });
@@ -120,7 +100,7 @@ function handleGetInfo() {
 }
 
 async function handleGetInjectJs() {
-  const gInjScript = await getInjectScript();
+  const gInjScript = injectScript.default;
 
   if (!gInjScript) {
     return errorResponse(500, '// Unable to fetch inject script');

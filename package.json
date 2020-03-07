@@ -6,12 +6,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "wrangler dev --port 29997 --ip 0.0.0.0",
     "create-constants": "bash create-constants.sh",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "author": "RenCloud",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "raw-loader": "^4.0.0"
   }
 }
