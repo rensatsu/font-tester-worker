@@ -42,6 +42,11 @@
                 .link-gft-notification p {
                     margin: 0;
                 }
+
+                .link-gft-notification a {
+                  color: #00f;
+                  text-decoration: underline;
+                }
             `;
 
       document.head.appendChild(gftStyle);
