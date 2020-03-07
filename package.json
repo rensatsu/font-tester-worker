@@ -2,7 +2,7 @@
   "private": true,
   "name": "fonts-api",
   "version": "1.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
+  "description": "Google Fonts Tester Worker",
   "main": "index.js",
   "scripts": {
     "dev": "wrangler dev --port 29997 --ip 0.0.0.0",
