@@ -26,6 +26,13 @@ At this moment, script fetches only fonts which contain cyrillic subset.
 * `GFONTS_API_KEY` - Google Fonts API Token.
 * `GFONTS_REFERRER` - Google Fonts API Token Referer.
 
+## License
+
+This software is licensed under MIT License.
+Text of the license is available [here][1].
+
 ## Status
 
 ![.github/workflows/wrangler.yml](https://github.com/rensatsu/font-tester-worker/workflows/.github/workflows/wrangler.yml/badge.svg?branch=master&event=push)
+
+[1]: ./LICENSE.txt
