@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "wrangler dev --port 29997 --ip 0.0.0.0",
     "create-constants": "bash create-constants.sh",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,css,json}'"
   },
   "author": "RenCloud",
   "license": "MIT",
