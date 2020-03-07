@@ -85,6 +85,7 @@ async function handleGetFonts() {
 async function handleGetDebug() {
   const jsonResp = {
     build: 'GIT_COMMIT' in Constants ? Constants.GIT_COMMIT : null,
+    home: GITHUB_URL,
   };
 
   const response = new Response(JSON.stringify(jsonResp), { status: 200 });
