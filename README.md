@@ -4,6 +4,7 @@ This bookmarklet adds a panel with fonts selector. It allows you to instantly ap
 different fonts for current webpage, so you can test fonts without editing CSS.
 
 > ⚠ Project is no longer supported.
+> Use [Snapfont][snapfont] as a replacement.
 
 ## Usage
 
@@ -29,10 +30,11 @@ At this moment, script fetches only fonts which contain cyrillic subset.
 ## License
 
 This software is licensed under MIT License.
-Text of the license is available [here][1].
+Text of the license is available [here][license].
 
 ## Status
 
 ![.github/workflows/wrangler.yml](https://github.com/rensatsu/font-tester-worker/workflows/.github/workflows/wrangler.yml/badge.svg?branch=master&event=push)
 
-[1]: ./LICENSE.txt
+[license]: ./LICENSE.txt
+[snapfont]: https://getsnapfont.com/
