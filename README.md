@@ -3,7 +3,7 @@
 This bookmarklet adds a panel with fonts selector. It allows you to instantly apply
 different fonts for current webpage, so you can test fonts without editing CSS.
 
-> ⚠ Project is no longer supported.
+> ⚠ Project is no longer supported.  
 > Use [Snapfont][snapfont] as a replacement.
 
 ## Usage
